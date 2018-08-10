@@ -163,7 +163,6 @@ int main(){
 		cout << "       Menu" << endl;
 		cout << "1. Ejercicio1" << endl;
 		cout << "2. Ejercicio2" << endl;
-		cout << "3. Ejercicio3" << endl;
 		cin >> option;
 		switch(option){
 			case 1:
@@ -172,9 +171,8 @@ int main(){
 			case 2:
 				Ejercicio2();
 				break;
-			case 3:
-				break;
 			default:
+				cout << "Opcion Invalida" << endl;
 				break;
 		}
 
