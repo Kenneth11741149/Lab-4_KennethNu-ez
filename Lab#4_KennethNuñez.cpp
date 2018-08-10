@@ -7,6 +7,18 @@ using std::endl;
 using std::string;
 #include <cstring>
 #include <stdlib.h>
+
+
+bool isPar(int num){
+	if( num % 2 == 0){
+		return true;
+	} else {
+		return false;
+	}
+}
+
+
+
 bool validarEnteros(char *orden){
 	bool verifier = true;
 	for(int i = 0; i < strlen(orden); i++){
@@ -18,7 +30,15 @@ bool validarEnteros(char *orden){
 	}
 	
 	return verifier;
-} //FIn enteros
+} //FIn enterosa
+bool isNegativo(int num){
+	if(num < 0){
+		return true;
+	} else {
+		return false;
+	}
+
+}
 
 void Ejercicio1(){
 	cout << "Ingrese el orden de la matriz" << endl;
@@ -62,7 +82,11 @@ void Ejercicio1(){
 			int neworder = ordenumerico;
 			neworder--;
 			int ordendos = atoi(orden2);
-			int ordentres = atoi(orden3);
+			int ordentres = atoi(orden3);	
+			if(isNegativo(ordendos) || isNegativo(ordentres)){
+				cout << "ES NEGATIVO!!" << endl;
+			}
+
 			if(ordendos > neworder || ordentres > neworder){
 				cout << "Es mayor que el orden de la matriz" << endl;
 			} else {
@@ -87,24 +111,30 @@ void Ejercicio1(){
 				}
 				cout << endl;
 				cout << endl;
-				if( (ordendos + ordentres) % 2 == 0){
-					cout << "+(" << cofactor << ")" << endl;
+				string compressor = "";
+				int compressorcont = 0;
+				if(isPar(ordendos+ordentres)){
+					cout << "+(" << cofactor << ")";
 				} else {
-					cout << "-(" << cofactor << ")" << endl;
-				}
+					cout << "-(" << cofactor << ")";
+			        }
 				for(int i = 0; i < ordenumerico;i++){
 					for(int j = 0; j < ordenumerico; j++){
 						if(i == ordendos || j == ordentres ){
 							
 						} else {
+							if(compressorcont == 0){
+								compressorcont++;
+							}
 							cout << "[" <<  matrize[i][j] << "]";
 						}
 
 					}
-					cout <<endl;
+					cout << endl;
 					cout << "    ";
 					
-				}				
+				}	
+				
 			}
 			
 
@@ -121,6 +151,10 @@ void Ejercicio1(){
 	
 }//FIn ejercicio 1
 
+void Ejercicio2(){
+	cout << "El programa no esta terminado" << endl;
+}
+
 int main(){
 	cout << "Bienvenido al Lab de Kenneth" << endl;
 	char resp = 'S';
@@ -136,6 +170,7 @@ int main(){
 				Ejercicio1();
 				break;
 			case 2:
+				Ejercicio2();
 				break;
 			case 3:
 				break;
